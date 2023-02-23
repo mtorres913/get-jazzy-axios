@@ -6,9 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Get Jazzy Axios</title>    
 </head>
+
 <body>
     <h1>Get Jazzy Axios</h1>
-
+    <form onSubmit="submitForm(event)">
+        Artist Name: <input type="text" id="nameInput" />
+        <br />
+        Born: <input type="number" id="bornInput" />
+        <br />
+        Died: <input type="number" id="diedInput" />
+        <br />
+        <input type="submit" />
+    </form>
     <h2>Famous Jazz Artists</h2>
     <table>
         <thead>
@@ -20,7 +29,14 @@
         </thead>
         <tbody id="artistTableBody"></tbody>
     </table>
-
+    <br />
+    <form onSubmit="submitSong(event)">
+        Song Title: <input type="text" id="titleInput" />
+        <br />
+        Artist: <input type="text" id="artistInput" />
+        <br />
+        <input type="submit" />
+    </form>
     <h2>Famous Jazz Songs</h2>
     <table>
         <thead>

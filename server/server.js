@@ -44,14 +44,36 @@ const songListArray = [
         artist: 'The Dave Brubeck Quartet',
     },
 ];
-
-app.use(express.static('server/public'));
+app.use(express.json())
 
 app.get('/artist', (req, res) => {
     res.send(artistListArray);
 });
 
 // TODO - Add GET for songs
+app.get('/song', (req, res) => {
+    res.send(songListArray);
+});
+app.post('/artist', (req, res)=> {
+    console.log('POST request made for /artist');
+    //Any data we send from the client is available
+    //as a property of req.body
+    console.log(req.body);
+    let artistToAdd = req.body;
+    artistListArray.push(artistToAdd);
+    res.sendStatus(201); //Success!
+});
+app.post('/song', (req, res)=> {
+    console.log('POST request made for /song');
+    //Any data we send from the client is available
+    //as a property of req.body
+    console.log(req.body);
+    let songToAdd = req.body;
+    songListArray.push(songToAdd);
+    res.sendStatus(201); //Success!
+});
+
+app.use(express.static('server/public'));
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT)
